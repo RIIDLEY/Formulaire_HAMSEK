@@ -46,6 +46,9 @@ class Model
     }
 
 
+    /**
+     * Méthode permettant d'ajouter un nouvelle utilisateur
+     */
     public static function addLogin($infos)
     {
         $m = Model::getModel();
@@ -64,6 +67,10 @@ class Model
         }
     }
 
+
+    /**
+     * Méthode permettant d'obtenir le nom des utilisateurs
+     */
     public function getLogin()
     {
 
@@ -80,6 +87,9 @@ class Model
         }
     }
 
+    /**
+     * Méthode permettant d'obtenir le nombre d'utilisateur
+     */
     public function getNbLogin()
     {
         try {
@@ -91,6 +101,10 @@ class Model
         }
     }
 
+
+      /**
+     * Méthode permettant d'obtenir le mot de passe de l'utilisateur hashé
+     */
     public function getMDP($user)
     {
         try {
