@@ -10,7 +10,7 @@ require('view_begin.php');
 				<p> <label> Confirmation mot de passe: <input type="password" name="mdpconf"/></label> </p>
 				<p>  <input type="submit" value="Creation"/> </p>
 			</form>
-	
+			<button onclick="location.href='?controller=home&action=home'" type="button">Page de connexion</button>
 <?php
 require('view_end.php');
 ?>

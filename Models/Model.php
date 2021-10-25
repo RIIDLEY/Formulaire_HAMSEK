@@ -91,4 +91,16 @@ class Model
         }
     }
 
+    public function getMDP($user)
+    {
+        try {
+            $requete = $this->bd->prepare('SELECT mdp FROM user WHERE login = :user');
+            $requete->bindValue(':user', $user);
+            $requete->execute();
+            return $requete->fetch(PDO::FETCH_NUM);
+        } catch (PDOException $e) {
+            die('Echec getMDP, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+        }
+    }
+
 }
