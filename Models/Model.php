@@ -51,7 +51,7 @@ class Model
         $m = Model::getModel();
         try { 
             //Préparation de la requête
-            $requete = $m->bd->prepare('INSERT INTO user (login, mdp) VALUES (:login, :mdp)');
+            $requete = $m->bd->prepare('INSERT INTO user_list_HAMSEK (login, mdp) VALUES (:login, :mdp)');
             //Remplacement des marqueurs de place par les valeurs
             $marqueurs = ['login', 'mdp'];
             foreach ($marqueurs as $value) {
@@ -68,7 +68,7 @@ class Model
     {
 
         try {
-            $requete = $this->bd->prepare('SELECT login FROM user');
+            $requete = $this->bd->prepare('SELECT login FROM user_list_HAMSEK');
             $requete->execute();
             $reponse = [];
             while ($ligne = $requete->fetch(PDO::FETCH_ASSOC)) {
@@ -83,7 +83,7 @@ class Model
     public function getNbLogin()
     {
         try {
-            $requete = $this->bd->prepare('SELECT count(*) FROM user');
+            $requete = $this->bd->prepare('SELECT count(*) FROM user_list_HAMSEK');
             $requete->execute();
             return $requete->fetch(PDO::FETCH_NUM);
         } catch (PDOException $e) {
@@ -94,7 +94,7 @@ class Model
     public function getMDP($user)
     {
         try {
-            $requete = $this->bd->prepare('SELECT mdp FROM user WHERE login = :user');
+            $requete = $this->bd->prepare('SELECT mdp FROM user_list_HAMSEK WHERE login = :user');
             $requete->bindValue(':user', $user);
             $requete->execute();
             return $requete->fetch(PDO::FETCH_NUM);
